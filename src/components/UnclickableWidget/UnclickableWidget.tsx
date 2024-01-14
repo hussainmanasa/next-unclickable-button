@@ -3,9 +3,10 @@ import Image from "next/image";
 import React, { useRef, useState } from "react";
 import HeartIcon from "@/assets/heart.svg";
 import { styles } from "./styles";
+import Confetti from "react-confetti";
 
 const UnclickableWidget = () => {
-  const [title, setTitle] = useState("Will you be my Valentine ?");
+  const [title, setTitle] = useState("Will You Be My Valentine ?");
   const [noBtnPosition, setNoBtnPosition] = useState<{
     top: number | "unset";
     left: number | "unset";
@@ -13,6 +14,7 @@ const UnclickableWidget = () => {
     top: "unset",
     left: "unset",
   });
+  const [showConfetti, setShowConfetti] = useState(false);
   const boxRef = useRef<HTMLInputElement>(null);
   const noBtnOnHover = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     const boxRect = boxRef?.current;
@@ -32,6 +34,13 @@ const UnclickableWidget = () => {
   };
   return (
     <Box sx={styles.widgetContainer}>
+      {showConfetti && (
+        <Confetti
+          width={window.innerWidth}
+          height={window.innerHeight}
+          numberOfPieces={600}
+        />
+      )}
       <Paper ref={boxRef} sx={styles.widgetBox} elevation={8}>
         <Box sx={styles.WidgetIcon}>
           <Image src={HeartIcon} alt="heart"></Image>
@@ -42,7 +51,8 @@ const UnclickableWidget = () => {
         <Box sx={styles.widgetActions}>
           <Button
             onClick={() => {
-              setTitle("I Love you!!!!");
+              setTitle("Yay!!! I Love you Bubu!!!");
+              setShowConfetti(true);
             }}
             sx={{
               ...styles.yesButton,
