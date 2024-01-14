@@ -25,8 +25,6 @@ const UnclickableWidget = () => {
       Math.floor(
         Math.random() * ((boxRect?.clientHeight ?? 0) - noBtnRect.height)
       ) + 1;
-    console.log(i, j);
-    console.log(noBtnRect.width, noBtnRect.height);
     setNoBtnPosition({
       top: Math.abs(j),
       left: Math.abs(i),
@@ -56,6 +54,7 @@ const UnclickableWidget = () => {
           </Button>
           <Button
             onMouseEnter={noBtnOnHover}
+            onClick={noBtnOnHover}
             sx={{
               ...styles.noButton,
               ...noBtnPosition,

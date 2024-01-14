@@ -10,10 +10,13 @@ export const styles = {
   },
   widgetBox: {
     position: "relative",
-    height: "350px",
+    height: {
+      md: "350px",
+      sm: "500px",
+    },
     alignSelf: "center",
     p: 5,
-    width: "650px",
+    width: "100%",
   },
   WidgetIcon: {
     display: "flex",
@@ -30,7 +33,10 @@ export const styles = {
     ml: "-200px",
   },
   noButton: {
-    backgroundColor: "#fff",
+    backgroundColor: "#ffffff",
+    "&:hover": {
+      backgroundColor: "#ffffff",
+    },
     position: "absolute",
     mr: "-200px",
   },
