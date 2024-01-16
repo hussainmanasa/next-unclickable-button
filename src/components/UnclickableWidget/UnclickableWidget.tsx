@@ -48,33 +48,35 @@ const UnclickableWidget = () => {
         <Typography textAlign={"center"} variant="h3">
           {title}
         </Typography>
-        <Box sx={styles.widgetActions}>
-          <Button
-            onClick={() => {
-              setTitle("Yay!!! I Love you Bubu!!!");
-              setShowConfetti(true);
-            }}
-            sx={{
-              ...styles.yesButton,
-              ...styles.button,
-            }}
-            variant="contained"
-          >
-            Yes
-          </Button>
-          <Button
-            onMouseEnter={noBtnOnHover}
-            onClick={noBtnOnHover}
-            sx={{
-              ...styles.noButton,
-              ...noBtnPosition,
-              ...styles.button,
-            }}
-            variant="outlined"
-          >
-            No
-          </Button>
-        </Box>
+        {!showConfetti && (
+          <Box sx={styles.widgetActions}>
+            <Button
+              onClick={() => {
+                setTitle("Yay!!! I Love you Bubu!!!");
+                setShowConfetti(true);
+              }}
+              sx={{
+                ...styles.yesButton,
+                ...styles.button,
+              }}
+              variant="contained"
+            >
+              Yes
+            </Button>
+            <Button
+              onMouseEnter={noBtnOnHover}
+              onClick={noBtnOnHover}
+              sx={{
+                ...styles.noButton,
+                ...noBtnPosition,
+                ...styles.button,
+              }}
+              variant="outlined"
+            >
+              No
+            </Button>
+          </Box>
+        )}
       </Paper>
     </Box>
   );
